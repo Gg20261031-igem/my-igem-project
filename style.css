@@ -607,61 +607,67 @@ img[src*="bile-acid.webp"] {
 
 .ba-reset { z-index: 5; }
 
-/* ========== state2-v2：新增scale，可调整大小+位置 ========== */
-.state-2 {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  opacity: 1;
-  top: -22% !important;
-  left: -30% !important;
-  z-index: 10;
-  /* 新增scale：调整大小（1=原尺寸，0.8=缩小到80%，1.2=放大到120%） */
-  transform: scale(0.9) !important; /* 可改：0.5=缩小一半，2=放大两倍 */
+/* ========== 修正：state-2/3 固定页面位置（不跟随滚动）+ 锁死样式 ========== */
+/* 1. 核心：改回absolute定位（跟随页面滚动，不跟视口），加独立定位隔离 */
+.state-2, .state-3 {
+  /* 恢复absolute，基于页面流定位（不跟随屏幕滚动） */
+  position: absolute !important; 
+  /* 锁死transform原点，避免缩放/位移错位 */
+  transform-origin: left top !important; 
+  /* 强制不继承父容器样式，避免干扰 */
+  margin: 0 !important;
+  padding: 0 !important;
+  pointer-events: none !important;
+  box-sizing: border-box !important;
+  /* 固定父容器基准（body），避免嵌套定位干扰 */
+  top: auto !important;
+  left: auto !important;
 }
 
-/* ========== state3-v2：新增scale+强制动画生效 ========== */
-/* 只保留state3的核心动画样式，强制生效 */
+/* 2. 修复state-2：保留你的位置/大小，锁死优先级 */
+.state-2 {
+  width: auto !important; /* 取消100%宽度，避免拉伸 */
+  height: auto !important;
+  /* 恢复你原本的位置数值，加!important锁死 */
+  top: 10% !important; 
+  left: -30% !important;
+  z-index: 10 !important;
+  /* 合并scale和translate，避免属性冲突 */
+  transform: scale(0.9) translate(0, 0) !important;
+}
+
+/* 3. 修复state-3：保留你的位置/动画，取消fixed，锁死样式 */
 .state-3 {
-  position: absolute !important;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;
-  opacity: 1 !important;
-  top: 1% !important;
-  left: 20% !important;
-  z-index: 999 !important; /* 置顶，确保能看到移动 */
-  transform: scale(0.4);
-  /* 初始状态：无位移 */
-  transform: translate(0, 0) !important;
-  /* 动画过渡：强制生效 */
+  width: auto !important;
+  height: auto !important;
+  /* 恢复你原本的初始位置，加!important锁死 */
+  top: 72% !important;
+  left: 11% !important;
+  z-index: 999 !important;
+  /* 合并scale和初始translate，避免冲突（核心修复） */
+  transform: scale(0.2) translate(0, 0) !important;
+  /* 锁死动画过渡，不被其他样式覆盖 */
   transition: transform 2.5s ease !important;
 }
 
-/* 触发后的状态：左上移动300px（效果极明显，一眼能看到） */
+/* 4. state-3动画触发状态：合并scale+位移，避免错位 */
 .state-3.play-animation {
-  transform: translate(-420px, -420px) !important;
-}
-/* 关键帧：新增scale，可在动画中调整大小 */
-/* 侧边栏整体外框：和按钮风格匹配的边框+背景 */
-.sidebar {
-  /* 外框：白色细边框+圆角，和按钮一致 */
-  border: 1px solid white !important;
-  border-radius: 4px !important;
-  /* 背景：半透明深色，和按钮背景呼应 */
-  background: rgba(10,10,26,0.8) !important;
-  /* 内边距：让内容和边框有间距 */
-  padding: 15px !important;
-  /* 避免侧边栏过窄，适配内容 */
-  min-width: 200px !important;
-  /* 层级：不被其他元素遮挡 */
-  z-index: 99 !important;
-  position:relative;
-  top:20px;
-  left:-130px;
+  transform: scale(1) translate(-380px, -380px) !important;
 }
 
+/* 5. 侧边栏隔离：保留你的位置，锁死层级不干扰 */
+.sidebar {
+  position: relative !important;
+  top: 20px !important;
+  left: -130px !important;
+  z-index: 100 !important; /* 侧边栏层级介于state-2和state-3之间 */
+  pointer-events: auto !important;
+  border: 1px solid white !important;
+  border-radius: 4px !important;
+  background: rgba(10,10,26,0.8) !important;
+  padding: 15px !important;
+  min-width: 200px !important;
+}
 /* 侧边栏标题样式：和按钮文字区分，保持清晰 */
 .sidebar-title {
   color: white !important;
