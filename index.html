@@ -12,7 +12,173 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@800;900&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
     <style>
-  </style>
+      /* ========== 新增：修复核心问题（全屏+单滚动条） ========== */
+/* 1. 强制恢复首页图片全屏效果（首屏占满视口） */
+#headerImage.header-image {
+  width: 100vw !important;
+  height: 100vh !important;
+  position: relative !important;
+  top: 0 !important;
+  left: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+#headerImage.header-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important; /* 保持比例且占满容器，恢复全屏 */
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+/* 2. 彻底消除第二个滚动条（仅保留浏览器默认的主滚动条） */
+html {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  height: 100% !important;
+}
+body {
+  overflow: visible !important; /* 取消body的overflow限制，避免嵌套滚动条 */
+  height: auto !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+/* 重置所有容器的overflow，防止局部滚动条 */
+.container, .scroll-text-container, .animation-container-homepage, 
+.sponsors-section, .bottom-image-container, .diagnostic-time-container {
+  overflow: visible !important;
+  height: auto !important;
+  max-height: none !important;
+}
+
+/* ========== 响应式适配（优化版） ========== */
+
+/* 平板（≤991px） */
+@media (max-width: 991px) {
+  .navbar-brand {
+    margin-left: 1rem !important;
+    font-size: 1rem !important;
+  }
+  .navbar-nav .nav-link {
+    margin-right: 1rem !important;
+    font-size: 0.9rem !important;
+  }
+  .image-text-box {
+    width: 100% !important;
+    max-width: 90% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 0 !important;
+    height: auto !important;
+    padding: 2rem !important;
+  }
+  .image-text-content {
+    font-size: 18px !important;
+  }
+  .abstract-title {
+    font-size: 24px !important;
+  }
+  #backToTop {
+    width: 40px !important;
+    height: 40px !important;
+    bottom: 20px !important;
+    right: 20px !important;
+  }
+  #backToTop .arrow {
+    font-size: 16px !important;
+  }
+  .scroll-text {
+    font-size: 16px !important;
+    width: 90% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+  #prev-btn, #next-btn {
+    padding: 6px 16px !important;
+    font-size: 14px !important;
+  }
+  .sponsor-logo {
+    height: 50px !important;
+    margin: 0 20px !important;
+  }
+  .sponsors-title {
+    font-size: 2rem !important;
+  }
+}
+
+/* 移动端（≤575px） */
+@media (max-width: 575px) {
+  /* 首屏图片高度保持100vh（或按需调整） */
+  #headerImage.header-image {
+    height: 100vh !important;  /* 如果你希望占满全屏，保持100vh；否则保留80vh */
+  }
+
+  /* 侧边栏转为顶部 */
+  .sidebar {
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    min-width: 100% !important;
+    margin-bottom: 2rem !important;
+    transform: none !important;
+  }
+
+  /* 主要绝对定位容器回归文档流 */
+  .diagnostic-time-container,
+  .step-bright-container,
+  .bottom-image-container,
+  .bottom-footer-container,
+  .sponsors-section {
+    position: relative !important;
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+    top: auto !important;
+    margin: 2rem 0 !important;  /* 适当增加间距 */
+  }
+
+  /* 幻灯片父容器自适应 */
+  .text-bg-container-slide {
+    width: 100% !important;
+    right: 0 !important;
+    height: auto !important;
+    min-height: 400px !important;
+  }
+
+  /* 幻灯片内部文字调整 */
+  .text-content-container-slide {
+    font-size: 16px !important;
+    top: 30px !important;      /* 稍降低，避免贴顶 */
+    left: 5% !important;
+    width: 90% !important;
+  }
+
+  /* 诊断/BRIGT文字缩小 */
+  .diagnostic-time-text {
+    font-size: clamp(1rem, 4vw, 2.2rem) !important;
+  }
+  .bright-step-text {
+    font-size: clamp(1rem, 3vw, 1.8rem) !important;
+  }
+  .bright-bigtxt {
+    font-size: clamp(2rem, 10vw, 4rem) !important;  /* 最大约64px，更协调 */
+  }
+
+  /* 底部按钮竖排 */
+  .footer-btns-wrapper {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .footer-custom-btn {
+    width: 100% !important;
+    padding: 10px 0 !important;
+  }
+}
+</style>
 </head>
 <body>
   <!-- 1. 嵌BA动画JS -->
