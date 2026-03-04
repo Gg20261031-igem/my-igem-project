@@ -1,0 +1,1066 @@
+:root {
+    --bs-breakpoint-xs: 0;
+    --bs-breakpoint-sm: 576px;
+    --bs-breakpoint-md: 768px;
+    --bs-breakpoint-lg: 992px;
+    --bs-breakpoint-xl: 1200px;
+    --bs-breakpoint-xxl: 1400px;
+}
+@media (prefers-reduced-motion: no-preference) {
+    :root {
+        scroll-behavior: smooth;
+    }
+}
+/* 引入本地自定义字体（SEGUIBL + ARIAL） */
+@font-face {
+  font-family: 'SEGUIBL'; /* 自定义字体名，后续直接用 */
+  src: url('assets/fonts/SEGUIBL.TTF') format('truetype'); /* 字体文件路径 */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ARIAL'; /* 自定义字体名，后续直接用 */
+  src: url('assets/fonts/ARIAL.TTF') format('truetype'); /* 字体文件路径 */
+  font-weight: normal;
+  font-style: normal;
+}
+:root, [data-bs-theme="light"] {
+    --bs-blue: #0d6efd;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-black: #000;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+    --bs-gray-dark: #343a40;
+    --bs-gray-100: #f8f9fa;
+    --bs-gray-200: #e9ecef;
+    --bs-gray-300: #dee2e6;
+    --bs-gray-400: #ced4da;
+    --bs-gray-500: #adb5bd;
+    --bs-gray-600: #6c757d;
+    --bs-gray-700: #495057;
+    --bs-gray-800: #343a40;
+    --bs-gray-900: #212529;
+    --bs-primary: #0d6efd;
+    --bs-secondary: #6c757d;
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: #ffc107;
+    --bs-danger: #dc3545;
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+    --bs-primary-rgb: 13, 110, 253;
+    --bs-secondary-rgb: 108, 117, 125;
+    --bs-success-rgb: 25, 135, 84;
+    --bs-info-rgb: 13, 202, 240;
+    --bs-warning-rgb: 255, 193, 7;
+    --bs-danger-rgb: 220, 53, 69;
+    --bs-light-rgb: 248, 249, 250;
+    --bs-dark-rgb: 33, 37, 41;
+    --bs-primary-text-emphasis: #052c65;
+    --bs-secondary-text-emphasis: #2b2f32;
+    --bs-success-text-emphasis: #0a3622;
+    --bs-info-text-emphasis: #055160;
+    --bs-warning-text-emphasis: #664d03;
+    --bs-danger-text-emphasis: #58151c;
+    --bs-light-text-emphasis: #495057;
+    --bs-dark-text-emphasis: #495057;
+    --bs-primary-bg-subtle: #cfe2ff;
+    --bs-secondary-bg-subtle: #e2e3e5;
+    --bs-success-bg-subtle: #d1e7dd;
+    --bs-info-bg-subtle: #cff4fc;
+    --bs-warning-bg-subtle: #fff3cd;
+    --bs-danger-bg-subtle: #f8d7da;
+    --bs-light-bg-subtle: #fcfcfd;
+    --bs-dark-bg-subtle: #ced4da;
+    --bs-primary-border-subtle: #9ec5fe;
+    --bs-secondary-border-subtle: #c4c8cb;
+    --bs-success-border-subtle: #a3cfbb;
+    --bs-info-border-subtle: #9eeaf9;
+    --bs-warning-border-subtle: #ffe69c;
+    --bs-danger-border-subtle: #f1aeb5;
+    --bs-light-border-subtle: #e9ecef;
+    --bs-dark-border-subtle: #adb5bd;
+    --bs-white-rgb: 255, 255, 255;
+    --bs-black-rgb: 0, 0, 0;
+    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0));
+    --bs-body-font-family: var(--bs-font-sans-serif);
+    --bs-body-font-size: 1rem;
+    --bs-body-font-weight: 400;
+    --bs-body-line-height: 1.5;
+    --bs-body-color: #212529;
+    --bs-body-color-rgb: 33, 37, 41;
+    --bs-body-bg: #fff;
+    --bs-body-bg-rgb: 255, 255, 255;
+    --bs-emphasis-color: #000;
+    --bs-emphasis-color-rgb: 0, 0, 0;
+    --bs-secondary-color: rgba(33, 37, 41, .75);
+    --bs-secondary-color-rgb: 33, 37, 41;
+    --bs-secondary-bg: #e9ecef;
+    --bs-secondary-bg-rgb: 233, 236, 239;
+    --bs-tertiary-color: rgba(33, 37, 41, .5);
+    --bs-tertiary-color-rgb: 33, 37, 41;
+    --bs-tertiary-bg: #f8f9fa;
+    --bs-tertiary-bg-rgb: 248, 249, 250;
+    --bs-heading-color: inherit;
+    --bs-link-color: #0d6efd;
+    --bs-link-color-rgb: 13, 110, 253;
+    --bs-link-decoration: underline;
+    --bs-link-hover-color: #0a58ca;
+    --bs-link-hover-color-rgb: 10, 88, 202;
+    --bs-code-color: #d63384;
+    --bs-highlight-color: #212529;
+    --bs-highlight-bg: #fff3cd;
+    --bs-border-width: 1px;
+    --bs-border-style: solid;
+    --bs-border-color: #dee2e6;
+    --bs-border-color-translucent: rgba(0, 0, 0, .175);
+    --bs-border-radius: .375rem;
+    --bs-border-radius-sm: .25rem;
+    --bs-border-radius-lg: .5rem;
+    --bs-border-radius-xl: 1rem;
+    --bs-border-radius-xxl: 2rem;
+    --bs-border-radius-2xl: var(--bs-border-radius-xxl);
+    --bs-border-radius-pill: 50rem;
+    --bs-box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+    --bs-box-shadow-sm: 0 .125rem .25rem rgba(0, 0, 0, .075);
+    --bs-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, .175);
+    --bs-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, .075);
+    --bs-focus-ring-width: .25rem;
+    --bs-focus-ring-opacity: .25;
+    --bs-focus-ring-color: rgba(13, 110, 253, .25);
+    --bs-form-valid-color: #198754;
+    --bs-form-valid-border-color: #198754;
+    --bs-form-invalid-color: #dc3545;
+    --bs-form-invalid-border-color: #dc3545;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+/* 开场视频容器：全屏覆盖 */
+.intro-video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000; /* 黑色背景，和视频融合 */
+  z-index: 999999; /* 确保在最上层，遮挡所有内容 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1.2s ease-in-out; /* 淡出动画时长 */
+}
+
+/* 视频本身：保持比例，不拉伸 */
+.intro-video-container video {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* 保持视频原始比例 */
+}
+
+/* 淡出状态：透明且不可点击 */
+.intro-video-container.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+/* 强制全局背景：优先加载PNG，彻底覆盖所有黑色兜底 */
+html {
+  background: none !important; /* 清空所有默认背景 */
+}
+body {
+  /* 核心：精准指向你的背景图（无空格！） */
+  background-image: url("./assets/images/background.png") !important;
+  /* 必加：解决file协议下的路径问题 */
+  background-origin: content-box !important;
+  /* 适配设置：固定+铺满+不平铺 */
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-attachment: fixed !important;
+  background-size: cover !important;
+  /* 兜底颜色调浅一点，方便判断是否加载失败 */
+  background-color: #121222 !important;
+  color: #ffffff !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+/* --- 固定导航栏 --- */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* 确保导航栏在最上层，不被遮挡 */
+  background-color: rgba(10, 10, 26, 0.95);
+}
+
+/* --- 静态标题区：CAU-CHINA --- */
+/* 首屏大标题区块（全屏+独立背景） */
+/* --- 顶部固定导航栏 --- */
+.navbar {
+  background-color: rgba(10, 10, 26, 0.95) !important;
+  border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+  padding: 0.8rem 0;
+}
+
+/* 左侧 Team 标签样式 */
+.navbar-brand {
+  color: #00ff88 !important; /* 浅绿色，和 CAU-CHINA 呼应 */
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-left: 2rem; /* 左侧留间距 */
+}
+.navbar-brand:hover {
+  color: #ffd700 !important; /* 鼠标 hover 变金黄色 */
+}
+
+/* 右侧 Disclaimer 标签样式 */
+.navbar-nav .nav-link {
+  color: #00ff88 !important;
+  font-size: 1rem;
+  margin-right: 2rem; /* 右侧留间距 */
+}
+.navbar-nav .nav-link:hover {
+  color: #ffd700 !important; /* 鼠标 hover 变金黄色 */
+}
+
+/* 下拉菜单样式（Disclaimer 展开后） */
+.dropdown-menu {
+  background-color: rgba(10, 10, 26, 0.95) !important;
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  right: 0; /* 下拉菜单右对齐，避免超出屏幕 */
+  left: auto;
+}
+.dropdown-item {
+  color: #ffffff !important;
+}
+.dropdown-item:hover {
+  background-color: rgba(0, 255, 136, 0.1) !important;
+  color: #00ff88 !important;
+}
+/* --- 返回顶部按钮（核心样式，优先级拉满） --- */
+/* 唯一的返回顶部按钮样式，无重复、无冲突 */
+#backToTop {
+  position: fixed !important; /* 核心：钉死在屏幕 */
+  bottom: 30px !important;    /* 屏幕底部30px */
+  right: 30px !important;     /* 屏幕右侧30px → 右下角核心！ */
+  width: 48px !important;
+  height: 48px !important;
+  cursor: pointer !important;
+  z-index: 999999 !important; /* 碾压所有元素 */
+  background: rgba(10, 10, 26, 0.8) !important;
+  border-radius: 50% !important;
+}
+
+/* 进度环容器 */
+#backToTop .progress-ring {
+  transform: rotate(-90deg) !important;
+  width: 48px !important;
+  height: 48px !important;
+}
+
+/* 进度环背景 */
+#backToTop .progress-ring-circle-bg {
+  fill: transparent !important;
+  stroke: rgba(0, 255, 136, 0.2) !important;
+  stroke-width: 3 !important;
+}
+
+/* 进度环 */
+#backToTop .progress-ring-circle {
+  fill: transparent !important;
+  stroke: #00ff88 !important;
+  stroke-width: 3 !important;
+  stroke-linecap: round !important;
+  transition: stroke 0.3s ease !important;
+}
+
+/* 箭头 */
+#backToTop .arrow {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  font-size: 20px !important;
+  font-weight: bold !important;
+  color: #00ff88 !important;
+  transition: color 0.3s ease !important;
+}
+
+/* hover变色 */
+#backToTop:hover .progress-ring-circle {
+  stroke: #ffd700 !important;
+}
+#backToTop:hover .arrow {
+  color: #ffd700 !important;
+}
+
+/* 确保页面滚动条正常 */
+html {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  /* 移除 body 的 overflow-y 设置 */
+}/* 图片首屏样式：占满首屏，但不锁死滚动 */
+.header-image {
+  width: 100vw;
+  height: 100vh;
+  position: relative; /* 关键！不用fixed，避免锁页面 */
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* 淡出过渡：给图片加过渡动画 */
+.header-image img {
+  opacity: 1;
+  transition: opacity 0.8s ease; /* 淡出动画时长，可调 */
+}
+
+/* 主内容区：和首屏衔接 */
+.container.mt-5 {
+  margin-top: 0 !important;
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0); /* 半透明背景，避免内容和图片混在一起 */
+  padding: 2rem;
+  border-radius: 8px;
+}
+/* 图片文本框容器：全参数可调整，注释标清用途 */
+.image-text-box {
+  background-image: url("assets/images/wbkw1.png") !important;
+  background-size: 100% 100% !important;  /* 取消比例限制，图片完全拉伸适配容器 */
+background-repeat: no-repeat !important;
+background-position: center center !important; /* 图片在容器内居中（拉伸后也居中） */
+  /* ========== 文本框大小调整（核心） ========== */
+  width: 280% !important;          /* 文本框宽度：建议50%-100%，数字越小越窄 */
+  max-width: 1000px !important;    /* 文本框最大宽度：防止太宽，可改（比如600px/900px） */
+  height: 500px !important; /* 图片原比例（宽/高），改这个会保持比例缩放 */
+  /* 也可以不用aspect-ratio，直接手动设高度：height: 400px !important; */
+
+  /* ========== 文本框整体位置调整 ========== */
+  margin: 50px auto !important;   /* 上下间距50px（可改，比如20px/100px），auto=水平居中 */
+  position: relative !important;
+  left: 670px !important;           /* 整体左右偏移：正数右移，负数左移（比如-20px/30px） */
+  top: -20px !important;            /* 整体上下偏移：正数下移，负数上移（比如-10px/40px） */
+
+  /* 浮现动画（不用改） */
+  opacity: 0 !important; 
+  transform: translateY(30px) !important; 
+  transition: all 1.8s ease !important;
+  z-index: 99 !important;
+}
+
+/* 文本内容：内部文字位置调整 */
+.image-text-content {
+  position: absolute !important;
+  /* ========== 文字在图片内的位置调整 ========== */
+  top: 45% !important;     /* 文字上下位置：50%=垂直居中，改数值（比如30%=偏上，70%=偏下） */
+  left: 50% !important;    /* 文字左右位置：50%=水平居中，改数值（比如40%=偏左，60%=偏右） */
+  transform: translate(-50%, -50%) !important; /* 配合top/left实现居中，不用改 */
+  
+  /* ========== 文字大小/样式调整 ========== */
+  font-size: 24px !important;     /* 文字大小，可改（14px/24px） */
+  color: #ffffff !important; 
+  text-shadow: 0 0 5px rgba(0,0,0,0.7) !important;
+  text-align: center !important;  /* 文字对齐：left/center/right */
+  width: 70% !important;          /* 文字区域宽度，防止超出图片 */
+  line-height: 1.8 !important;    /* 行间距，可改（1.2/2.0） */
+}
+.abstract-title {
+  font-family: 'SEGUIBL' !important; /* 用引入的SEGUIBL字体 */
+  color: #06b5f0;
+  font-weight: bold !important;      /* 强制加粗 */
+  font-size: 30px !important;        /* 标题字号（可按需调） */
+  margin-bottom: 100px !important; 
+  margin-top: -20px !important;   /* 和正文留间距 */
+}
+
+/* 正文：ARIAL字体 */
+.abstract-content {
+  font-family: 'ARIAL' !important;   /* 用引入的ARIAL字体 */
+  font-size: 21px !important;        /* 正文字号（可按需调） */
+  font-weight: normal !important; 
+  margin-top: -100px !important;   /* 正文不加粗（默认） */
+}
+/* 浮现后的状态（不用改） */
+.image-text-box.fade-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+/* 仅修改BAM加粗文字的颜色+字号，不影响其他内容 */
+.abstract-content .bam-highlight {
+  color: #00f2ff !important; 
+  font-size: 22px !important; /* 1.2倍默认字号，也可改px：18px/20px/22px */
+  /* 保留加粗效果，强化视觉（可选） */
+  font-weight: 900 !important;
+  /* 可选：加轻微发光阴影，和诊断时间文字风格呼应（不需要可删掉） */
+  text-shadow: 0 0 3px rgba(255,215,0,0.6) !important;
+}
+.animation-wrapper-homepage::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 600px;
+    z-index: 1;
+    pointer-events: none;
+    background: radial-gradient(120% 100% at 50% 0%, rgb(0, 0, 8) 0%, rgba(0, 0, 8, 0.8) 20%, rgba(0, 0, 8, 0.4) 50%, transparent 100%);
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+.animation-wrapper-homepage::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 900px;
+    width: 100%;
+    height: 600px;
+    z-index: 1;
+    pointer-events: none;
+    background: radial-gradient(120% 100% at 50% 100%, rgb(0, 0, 8) 0%, rgba(0, 0, 8, 0.8) 20%, rgba(0, 0, 8, 0.4) 50%, transparent 100%);
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+/* 给所有动画元素加过渡，让显示/位移更丝滑 */
+.animation-text-homepage, .animation-container-homepage img {
+    transition: all 0.8s ease !important; /* 覆盖内联样式的transition */
+}
+
+/* 保证容器定位正确，子元素absolute才生效 */
+.animation-container-homepage {
+    position: relative !important; /* 或absolute/fixed，根据你的布局 */
+
+    overflow: hidden !important;
+}
+/* 修复文字scale太大导致截断的问题 */
+/* 强制文字在最上层，不会被遮挡 */
+.animation-text-homepage {
+    position: relative !important; /* 层级生效的前提 */
+    z-index: 9999 !important;     /* 比所有图片/容器都高 */
+    width: 300px !important;      /* 固定宽度，避免文字换行乱飘 */
+    left: 50% !important;         /* 居中，避免偏出屏幕 */
+    transform: translateX(-50%) !important; /* 真正居中 */
+    background: rgba(0,0,0,0.5) !important; /* 加半透明背景，文字更清晰 */
+    padding: 10px !important;
+    border-radius: 8px !important;
+}
+
+/* 修正容器层级，确保动画元素在wrapper之上 */
+.animation-container-homepage {
+    position: relative !important;
+
+    overflow: hidden !important;
+    z-index: 10 !important; /* 高于wrapper的伪元素（z-index:1） */
+}
+
+/* 容器：解除所有宽度限制，确保left能生效 */
+.scroll-text-container {
+  position: relative; 
+  width: 100vw !important; /* 关键：占满整个屏幕宽度，解除容器限制 */
+  height: 2000px; 
+  margin: 50px 0;
+  overflow: hidden !important; /* 确保文字能超出容器，left生效 */
+}
+
+/* 文字样式：加宽宽度+强制left生效+一行显示更多文字 */
+.scroll-text {
+  position: absolute; 
+  color: white !important; 
+  font-size: 18px; 
+  opacity: 0; 
+  transform: translateY(20px); 
+  transition: opacity 2.5s ease, transform 2.5s ease;
+  z-index: 20; 
+font-family: 'SEGUIBL', sans-serif !important;
+  /* 👇 修复文本框窄的问题：加宽宽度，一行能放更多字 */
+  width: 600px !important; /* 可改：数值越大，文本框越宽 */
+  white-space: normal !important; /* 允许文字正常换行，不挤在一起 */
+  line-height: 1.5; /* 行高，让文字更舒展 */
+
+  /* 👇 强制left生效，不被其他样式覆盖 */
+  left: 50% !important; /* 现在改这个数值，文字能自由左右移动了 */
+}
+
+/* 每段文字的固定位置（left加!important，确保生效） */
+#text-1 {
+  left: 50% !important; /* 改这里：50%→20%=右移，50%→5%=左移 */
+  top: 100px; 
+}
+#text-2 {
+  left: 50% !important;
+  top: 200px; 
+}
+#text-3 {
+  left: 50% !important;
+  top: 300px; 
+}
+#text-4 {
+  left: 50% !important;
+  top: 400px; 
+}
+#text-5 {
+  left: 50% !important;
+  top: 500px; 
+}
+
+.scroll-text.show {
+  opacity: 1;
+  transform: translateY(0); 
+}
+.scroll-text strong {
+  color: #ffd700 !important; /* 金黄色（经典土豪金），可改#f9d71c等色调 */
+  font-weight: bold; /* 确保加粗效果 */
+}
+/* ========== 第二步：给每张图片独立定位权（你能随便改位置） ========== */
+/* 通用图片样式：脱离流，能自由定位，不遮挡文字 */
+.animation-container-homepage img {
+    position: absolute !important; /* 核心：自由定位，不受容器布局限制 */
+    opacity: 1 !important;         /* 先显示，调位置用 */
+    object-fit: contain !important;/* 保持比例，不拉伸 */
+    pointer-events: none !important;/* 不影响点击，只做显示 */
+    /* 基础默认值（你可以删掉，直接改下面单张图的数值） */
+    top: 0 !important;
+    left: 0 !important;
+    max-width: 30vw !important;    /* 避免图片太大，可改 */
+    z-index: 6 !important;         /* 比容器高，比文字低 */
+}
+
+/* ========== 第三步：单张图片精准定位（你改这里的数值，想放哪放哪） ========== */
+/* state-1图片：示例位置（你改top/left/right/bottom都可以） */
+img[src*="state-1.webp"] {
+    top: -500px !important;   
+    left: 40px !important;  /* 左边缘死死固定在100px，绝不挪！ */
+    /* 关键：用scale缩放（只放大图片本身，不改变占位，不往右挪） */
+    transform: scale(0.6) !important; /* 1=原大小，1.8=放大1.8倍，2=放大2倍，可改 */
+    transform-origin: left center !important; /* 以左边缘+垂直居中为基准放大，不偏移！ */
+    /* 取消max-width限制（让scale生效） */
+    max-width: none !important;  
+    max-height: none !important;
+    width: auto !important;   /* 保持图片原始宽度，只靠scale放大 */
+    height: auto !important;  /* 保持比例，不拉伸 */
+    z-index: 7 !important;   
+}
+
+/* 仅保留基础定位，不写transform，让类名控制 */
+img[src*="bile-acid.webp"] {
+    position: absolute !important;
+    top: 350px !important;
+    left: 40px !important;
+    transform-origin: center center !important;
+    transition: all 2s ease !important;
+    max-width: none !important;
+    max-height: none !important;
+    width: auto !important;
+    height: auto !important;
+    z-index: 99 !important;
+    opacity: 1 !important;
+}
+
+/* 动画类：统一scale值，和基础样式一致 */
+.ba-animate {
+    transform: scale(0.4) translate(200px,-200px) !important;
+}
+.ba-reset {
+    transform: scale(0.4) translate(0, 0) !important;
+}
+/* 修复动画容器，让内部图片完整显示，不被截断，也不产生多余的滚动条 */
+.animation-container-homepage {
+    overflow: hidden !important; /* 让内部元素可以完整显示，不被截断 */
+    transform: scale(1) !important; /* 把scale从1.2改回1，避免容器超出视口 */
+    width: 100% !important; /* 确保容器宽度不超出屏幕 */
+    height: auto !important; /* 高度自适应，避免产生不必要的滚动 */
+}
+/* 图片容器：仅作为定位基准，不影响任何已有元素 */
+/* ========== 核心修复：容器无任何边距，top:0%就是最顶部 ========== */
+/* 容器：无边距，top:0%=最顶部 */
+.animation-img-container {
+  position: relative;
+  width: 100vw !important;
+  top: 0 !important;
+  left: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.ba-reset { z-index: 5; }
+
+/* ========== state2-v2：新增scale，可调整大小+位置 ========== */
+.state-2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 1;
+  top: -22% !important;
+  left: -30% !important;
+  z-index: 10;
+  /* 新增scale：调整大小（1=原尺寸，0.8=缩小到80%，1.2=放大到120%） */
+  transform: scale(0.9) !important; /* 可改：0.5=缩小一半，2=放大两倍 */
+}
+
+/* ========== state3-v2：新增scale+强制动画生效 ========== */
+/* 只保留state3的核心动画样式，强制生效 */
+.state-3 {
+  position: absolute !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  opacity: 1 !important;
+  top: 1% !important;
+  left: 20% !important;
+  z-index: 999 !important; /* 置顶，确保能看到移动 */
+  transform: scale(0.4);
+  /* 初始状态：无位移 */
+  transform: translate(0, 0) !important;
+  /* 动画过渡：强制生效 */
+  transition: transform 2.5s ease !important;
+}
+
+/* 触发后的状态：左上移动300px（效果极明显，一眼能看到） */
+.state-3.play-animation {
+  transform: translate(-420px, -420px) !important;
+}
+/* 关键帧：新增scale，可在动画中调整大小 */
+/* 侧边栏整体外框：和按钮风格匹配的边框+背景 */
+.sidebar {
+  /* 外框：白色细边框+圆角，和按钮一致 */
+  border: 1px solid white !important;
+  border-radius: 4px !important;
+  /* 背景：半透明深色，和按钮背景呼应 */
+  background: rgba(10,10,26,0.8) !important;
+  /* 内边距：让内容和边框有间距 */
+  padding: 15px !important;
+  /* 避免侧边栏过窄，适配内容 */
+  min-width: 200px !important;
+  /* 层级：不被其他元素遮挡 */
+  z-index: 99 !important;
+  position:relative;
+  top:20px;
+  left:-130px;
+}
+
+/* 侧边栏标题样式：和按钮文字区分，保持清晰 */
+.sidebar-title {
+  color: white !important;
+  font-family: SEGUIBL !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  /* 和链接留间距 */
+  margin-bottom: 10px !important;
+  padding-bottom: 5px !important;
+  border-bottom: 1px solid rgba(255,255,255,0.3) !important;
+}
+
+/* 侧边栏链接：完全匹配Next/Previous按钮样式 */
+.sidebar-link {
+  /* 按钮基础样式：和Next/Prev一致 */
+  padding: 8px 20px !important;
+  margin-bottom: 10px !important; /* 链接之间留间距 */
+  background: rgba(8, 148, 8, 0.977) !important; /* 和Previous按钮背景一致 */
+  color: rgb(237, 184, 12) !important;
+  border: 1px solid white !important;
+  border-radius: 4px !important;
+  font-family: SEGUIBL !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+  /* 去掉默认下划线 */
+  text-decoration: none !important;
+  /* 居中显示 */
+  text-align: center !important;
+}
+
+/* 链接hover效果：和按钮hover呼应（可选，增加交互） */
+.sidebar-link:hover {
+  background: rgba(242, 3, 3, 0.989) !important; /* 和Next按钮背景一致 */
+  color: white !important;
+  border-color: white !important;
+}
+
+/* 去掉导航默认的间距和样式 */
+.sidebar-nav {
+  gap: 5px !important; /* 链接之间的小间距 */
+  --bs-nav-link-hover-color: white !important; /* 覆盖bootstrap默认hover色 */
+}
+/* 核心容器：严格控高+定位在按钮下方+点击穿透 */
+.diagnostic-time-container {
+  /* 定位：放在按钮（top:2300px）下方，物理上彻底错开 */
+  position: absolute !important;
+  top: 650px !important; /* 远低于按钮区域，绝对不重叠 */
+  left: -250px !important;
+  width: 250% !important;
+  text-align: center !important;
+  
+  /* 严格控高：仅包裹文字，无多余高度 */
+  height: fit-content !important; /* 高度=文字高度 */
+  max-height: fit-content !important; /* 强制限制最大高度 */
+  min-height: 0 !important; /* 取消任何最小高度限制 */
+  
+  /* 关键：点击穿透，哪怕重叠也不拦截按钮 */
+  pointer-events: none !important; 
+  
+  /* 层级：低于按钮（按钮z-index:100），不覆盖 */
+  z-index: 10 !important; 
+  
+  /* 内边距：仅给文字留少量间距，不增加高度 */
+  padding: 10px 0 !important;
+  margin: 0 !important;
+}
+
+/* 文字样式：保留Exo 2字体+发光+浮现动画，仅文字可被点击（容器穿透） */
+.diagnostic-time-text {
+  /* 字体：保留你喜欢的Exo 2 */
+  font-family: 'Exo 2', sans-serif !important;
+  font-weight: 900 !important;
+  /* 文字大小：可调整，不影响高度（fit-content会自适应） */
+  font-size: clamp(1.5rem, 5vw + 0.5rem, 5rem) !important; 
+  text-transform: uppercase !important;
+  color: #E7E9F4 !important;
+  /* 发光阴影：保留你要的效果 */
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 
+               -3px 0 10px rgb(171, 201, 3), 
+               -3px 0 20px rgb(179, 149, 2), 
+               3px 0 10px rgba(178, 193, 13, 0.991), 
+               3px 0 20px rgb(198, 170, 10) !important;
+  /* 强制文字仅占需要的宽度，不延伸 */
+  display: inline-block !important;
+  width: auto !important;
+  max-width: 90% !important;
+  margin: 0 auto !important;
+  
+  /* 浮现动画初始状态 */
+  opacity: 0 !important;
+  transform: translateY(30px) !important;
+  transition: opacity 1.8s ease, transform 1.8s ease !important;
+  
+  /* 关键：文字本身可被渲染，不穿透（仅容器穿透） */
+  pointer-events: auto !important;
+}
+
+/* 浮现后的状态 */
+.diagnostic-time-text.fade-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+/* 总容器：严格控高+定位最下方+点击穿透+不影响上方 */
+.step-bright-container {
+  position: absolute !important;
+  top: 1000px !important; /* 👇 可调整：数值越大越靠下（建议≥3000px） */
+  left: -250px !important;
+  width: 250% !important;
+  text-align: center !important; /* 整体居中 */
+  
+  /* 严格控高：仅包裹三行文字，只向下延伸，绝不向上 */
+  height: fit-content !important;
+  max-height: fit-content !important;
+  min-height: 0 !important;
+  
+  /* 点击穿透+低层级：不拦截上方元素 */
+  pointer-events: none !important;
+  z-index: 10 !important;
+  
+  /* 内边距：仅留少量间距，不增加多余高度 */
+  padding: 10px 0 !important;
+  margin: 0 !important;
+}
+
+/* 每句话的基础样式：白色+可调整字号+初始隐藏 */
+.bright-step-text {
+  color: #ffffff !important; /* 白色文字 */
+  font-family:"Rajdhani" !important;
+  font-size: clamp(1.2rem, 4vw + 0.5rem, 4rem) !important; /* 👇 可调整：整体字号 */
+  line-height: 1.8 !important; /* 👇 可调整：行间距（数值越大越宽松） */
+  font-weight: 700 !important; /* 可选：加粗，不需要可删 */
+  
+  /* 初始状态：透明+向下偏移（未浮现） */
+  opacity: 0 !important;
+  transform: translateY(30px) !important;
+  transition: opacity 1.8s ease, transform 1.8s ease !important; /* 👇 可调整：动画时长 */
+  
+  /* 文字本身可渲染，容器穿透不影响 */
+  pointer-events: auto !important;
+  
+  /* 确保每行居中，独占一行 */
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+/* BRIGT单独调整（可选：比其他文字更大/更粗） */
+/* BRIGT单独样式：字体+颜色+大小全自定义 */
+.bright-bigtxt {
+  /* 👇 单独设置字体（替换成你选的字体名） */
+  font-family: 'Orbitron', sans-serif !important;
+  /* 👇 单独设置颜色（示例：青绿色，可换任意色值） */
+  color: #00ff88 !important; 
+  /* 👇 单独设置大小（自适应+固定值都可） */
+  font-size: 150px !important; /* 自适应字号（推荐） */
+  /* 也可设固定值：font-size: 60px !important; */
+  
+  /* 可选：加发光阴影强化视觉（和诊断文字呼应） */
+  text-shadow: 0 0 5px rgba(0,255,136,0.8), 0 0 20px rgba(0,255,136,0.6) !important;
+  
+  font-weight: 900 !important; /* 极粗突出 */
+  margin-top: 10px !important; /* 和上一句的间距，可调整 */
+  letter-spacing: 5px !important; /* 可选：字母间距，更醒目 */
+}
+
+/* 浮现后的状态 */
+.bright-step-text.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+/* 图片总容器：保留原有定位/隔离逻辑，不修改 */
+.bottom-image-container {
+  position: absolute !important;
+  top: 1350px !important; /* 可调整：上下位置 */
+  left: 50% !important; /* 可调整：水平位置（50%=居中） */
+  transform: translateX(-50%) !important;
+  height: fit-content !important;
+  max-height: fit-content !important;
+  min-height: 0 !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
+  padding: 20px 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+/* 图片样式：去掉边框 + 直接设置宽高 */
+.state4-img {
+  /* 👇 1. 去掉外框（删除原有的border，或设为none） */
+  border: none !important; /* 彻底去掉边框 */
+  border-radius: 0 !important; /* 可选：如果不需要圆角也删掉/设为0 */
+  
+  /* 👇 2. 直接设置图片宽高（替换原来的max-width/max-height） */
+  width: 800px !important; /* 固定宽度（可改：700px/900px/1000px） */
+  height: 1100px !important; /* 固定高度（可改：400px/600px/700px） */
+  
+  opacity: 0 !important;
+  transform: translateY(50px) !important;
+  transition: opacity 2s ease, transform 2s ease !important; /* 动画时长可调整 */
+  
+  pointer-events: auto !important;
+  display: inline-block !important; /* 确保居中 */
+}
+
+/* 图片浮现后的状态（保留） */
+.state4-img.show-img {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* 按钮总容器：定位在图片下方+严格控高+点击穿透+不影响上方 */
+.bottom-footer-container {
+  position: absolute !important;
+  top: 2300px !important; /* 👇 可调整：数值越大越靠下（图片top:4000px，这里≥4500px） */
+  left: -150px !important;
+  width: 200% !important;
+  text-align: center !important; /* 整体居中 */
+  
+  /* 严格控高：仅包裹内容，只向下延伸，绝不向上 */
+  height: fit-content !important;
+  max-height: fit-content !important;
+  min-height: 0 !important;
+  
+  /* 点击穿透+低层级：不拦截上方元素，按钮本身可点击 */
+  pointer-events: none !important;
+  z-index: 10 !important;
+  
+  /* 内边距：和图片留间距，可调整 */
+  padding: 30px 0 50px !important; /* 上下内边距，可改：20px 0 40px */
+  margin: 0 !important;
+}
+
+/* 彩色渐变线条（黄+绿主题，参考CAUCHINA下的线） */
+.footer-gradient-line {
+  width: 80% !important; /* 👇 可调整：线条宽度（80%/90%/100%/800px） */
+  height: 4px !important; /* 👇 可调整：线条高度（3px/5px/8px） */
+  margin: 0 auto 20px !important; /* 👇 可调整：上下间距（20px=和文字的距离） */
+  
+  /* 黄+绿渐变（核心），可调整渐变方向/颜色 */
+  background: linear-gradient(90deg, 
+    rgba(255,215,0,1) 0%,   /* 纯黄色 */
+    rgba(0,255,136,1) 50%,  /* 纯青绿色 */
+    rgba(255,215,0,1) 100%  /* 回到黄色 */
+  ) !important;
+  
+  /* 可选：加轻微发光，和页面风格呼应 */
+  box-shadow: 0 0 8px rgba(255,215,0,0.8), 0 0 15px rgba(0,255,136,0.6) !important;
+  border-radius: 2px !important; /* 线条圆角，可改：0（直角）/4px */
+}
+
+/* Learn my project 文字：Rajdhani字体+白色 */
+.footer-learn-text {
+  font-family: "Rajdhani", sans-serif !important; /* 固定Rajdhani字体 */
+  color: #ffffff !important; /* 白色文字 */
+  font-size: clamp(1.5rem, 5vw + 0.5rem, 4rem) !important; /* 👇 可调整：文字大小 */
+  font-weight: 700 !important; /* 加粗，可改：400（常规）/900（极粗） */
+  margin-bottom: 30px !important; /* 👇 可调整：和按钮的间距（30px） */
+  pointer-events: auto !important; /* 文字不拦截点击，但可渲染 */
+}
+
+/* 横向按钮容器：让按钮并排显示 */
+.footer-btns-wrapper {
+  display: flex !important; /* 横向排列核心 */
+  justify-content: center !important; /* 按钮居中 */
+  align-items: center !important;
+  gap: 20px !important; /* 👇 可调整：按钮之间的间距（20px/30px/15px） */
+  flex-wrap: wrap !important; /* 屏幕小时自动换行，避免溢出 */
+  pointer-events: auto !important; /* 按钮容器可点击 */
+  width: 90% !important; /* 容器宽度，可改：80%/100% */
+  margin: 0 auto !important;
+}
+
+/* 按钮基础样式：统一大小，可单独修改每个按钮 */
+.footer-custom-btn {
+  /* 按钮大小（可调整） */
+  padding: 12px 30px !important; /* 👇 可调整：内边距（上下12px，左右30px） */
+  min-width: 150px !important; /* 👇 可调整：最小宽度，避免按钮过窄 */
+  height: auto !important;
+  
+  /* 基础样式：去掉默认链接样式 */
+  text-decoration: none !important;
+  display: inline-block !important;
+  border-radius: 6px !important; /* 👇 可调整：按钮圆角（6px/0/10px） */
+  font-weight: 700 !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  
+  /* 过渡动画：hover时平滑变化 */
+  transition: all 0.3s ease !important;
+}
+
+/* ========== 每个按钮单独样式（可自定义底色/字体/文字颜色） ========== */
+/* 按钮1：Team */
+.btn-team {
+  background-color: #ffd700 !important; /* 👇 可改：Team按钮底色（金色） */
+  color: #000000 !important;
+ } 
+ .btn-pic-source {
+  /* 👇 可修改：Picture source按钮底色（当前是青绿色） */
+  background-color: #00ff88 !important; 
+  /* 👇 可修改：Picture source按钮文字色（当前是白色） */
+  color: #000000 !important; 
+}
+
+/* ========== 3. Text source按钮：单独设置底色/文字色 ========== */
+.btn-text-source {
+  /* 👇 可修改：Text source按钮底色（当前是天蓝色） */
+  background-color: #1566e1 !important; 
+  /* 👇 可修改：Text source按钮文字色（当前是白色） */
+  color: #ffffff !important; 
+}
+
+ /* 按钮hover放大效果：鼠标悬浮时变大，提示可点击 */
+.footer-custom-btn:hover {
+  transform: scale(1.1) !important; /* 👉 可调整：放大倍数（1.1=放大10%，1.2=20%） */
+  box-shadow: 0 0 15px rgba(255,255,255,0.8) !important; /* 可选：加发光效果，更醒目 */
+  /* 保留原有hover的底色/文字色变化（如果之前有） */
+}
+
+/* 可选：加过渡动画，放大/缩小更平滑 */
+.footer-custom-btn {
+  /* 原有按钮基础样式不变，新增这行过渡 */
+  transition: all 0.3s ease !important; /* 0.3s是动画时长，可改0.2s/0.5s */
+}
+/* 页脚总容器：绝对定位在页面最底部，全宽 */
+#final-footer {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important; /* 紧贴页面底部 */
+  width: 100vw !important; /* 100%视口宽度，确保贯穿屏幕 */
+  text-align: center !important;
+  z-index: 999 !important; /* 确保在最上层，不被遮挡 */
+  padding-top: 40px !important; /* 标题和上方的间距 */
+  box-sizing: border-box !important;
+}
+/* 赞助商区域整体样式 */
+.sponsors-section {
+  width: 150%;
+  margin: 60px 0; /* 可根据需要调整上下间距 */
+  text-align: center;
+  position: relative;
+  top: 2200px; 
+  left:-20px;
+}
+
+/* 赞助商标题 */
+.sponsors-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2.5rem;
+  color: white;
+  text-shadow: 0 0 10px rgba(255,255,255,0.7);
+  margin-bottom: 30px;
+}
+
+/* 白色背景条 */
+.sponsors-white-bar {
+  background-color: white;
+  width: 100%;
+  padding: 80px 0; /* 上下内边距，让图片在白色条内居中 */
+  overflow: hidden; /* 确保任何溢出都被隐藏（但滚动容器本身已经hidden） */
+    border-radius: 20px !important; /* 加回圆角（数值可调整，8px=小圆角，20px=大圆） */
+  box-sizing: border-box !important;
+  /* 核心：白色荧光背景效果，和标题的荧光风格统一 */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 
+              inset 0 0 10px rgba(255, 255, 255, 0.5) !important;
+  /* 可选：轻微的外发光，增强荧光感 */
+  outline: 1px solid rgba(255, 255, 255, 0.776) !important;
+
+}
+
+/* 滚动广告条核心容器：超出隐藏 */
+.sponsor-scroll-wrap {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* 滚动轨道：使用flex使图片水平排列，并应用滚动动画 */
+.sponsor-scroll-track {
+  display: flex;
+  align-items: center;
+  width: fit-content; /* 宽度根据内容自动调整 */
+  animation: scrollSponsors 20s linear infinite; /* 动画名称、时长、匀速、无限循环 */
+}
+
+/* 赞助商图片样式 */
+.sponsor-logo {
+  height: 70px; /* 可根据实际图片高度调整 */
+  width: auto;
+  margin: 0 40px; /* 图片之间的水平间距 */
+  flex-shrink: 0; /* 防止图片被压缩 */
+}
+
+/* 定义滚动动画 */
+@keyframes scrollSponsors {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

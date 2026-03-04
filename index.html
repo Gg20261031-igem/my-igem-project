@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的 iGEM 项目页</title>
+    <!-- 引入 Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入你的自定义样式 -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@800;900&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
+    <style>
+  </style>
+</head>
+<body>
+  <!-- 1. 嵌BA动画JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const baImg = document.querySelector('img[src*="bile-acid.webp"]');
+      function baAni() {
+        const s = window.scrollY;
+        if (baImg) {
+          s >= 600 ? (baImg.classList.add('ba-animate'), baImg.classList.remove('ba-reset')) : (baImg.classList.add('ba-reset'), baImg.classList.remove('ba-animate'));
+        }
+      }
+      window.addEventListener('scroll', baAni);
+      baAni();
+    });
+  </script>
+  <!--第二段动画-->
+<script>
+// 等页面完全加载
+window.onload = function() {
+  // 直接获取元素（控制台已验证能找到）
+  const state3Img = document.querySelector('img[src="assets/images/state-3-v2.webp"]');
+  
+  // 暴力绑定滚动事件，每滚动1px就检查
+   window.addEventListener('scroll', function() {
+    // 触发条件：只要滚动距离>0就触发（滚动一点就动）
+    if (window.scrollY > 800) {
+      state3Img.classList.add('play-animation');
+      console.log('动画已触发！'); // 控制台打印，确认触发
+    } else {
+      state3Img.classList.remove('play-animation');
+    }
+   });
+  
+  // 初始执行一次，防止滚动前就满足条件
+  if (window.scrollY > 0) {
+    state3Img.classList.add('play-animation');
+  }
+};
+</script>
+  <!-- 给每个动画图片加 class="animation-img-homepage"，示例： -->
+    <!-- 开场视频容器 -->
+<div id="introVideoContainer" class="intro-video-container">
+  <video id="introVideo" autoplay muted playsinline>
+    <source src="assets/images/begin.mp4" type="video/mp4">
+    你的浏览器不支持视频播放，请升级浏览器。
+  </video>
+</div>
+    <!-- 顶部固定导航栏：Team 左，Disclaimer 右（带跳转） -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container-fluid">
+    <!-- 左侧：Team 跳转到 team.html -->
+    <a class="navbar-brand" href="team.html">Team</a>
+
+    <!-- 右侧：Disclaimer 下拉（分别跳转到不同页面） -->
+    <div class="ms-auto">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Disclaimer
+          </a>
+          <ul class="dropdown-menu">
+            <!-- Text Source 跳转到 text-source.html -->
+            <li><a class="dropdown-item" href="text-source.html">Text Source</a></li>
+            <!-- Picture Source 跳转到 picture-source.html -->
+            <li><a class="dropdown-item" href="picture-source.html">Picture Source</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div id="headerImage" class="header-image">
+  <img src="assets/images/headtitle.png" alt="CAU-CHINA" style="width: 100%; height: 100%; object-fit: cover;">
+</div>
+    <!-- 主内容区 -->
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-3">
+          <!-- 左侧侧边栏 -->
+<div class="sidebar">
+  <div class="sidebar-title">On this page</div>
+  <nav class="nav flex-column sidebar-nav">
+    <a class="nav-link sidebar-link" href="#abstract">Abstract</a>
+    <a class="nav-link sidebar-link" href="#introduction">Introduction</a>
+  </nav>
+</div>     <!-- 图片背景的浮动文本框（核心） -->
+<div class="image-text-box">
+  <div class="image-text-content">
+    <!-- 拆分：Abstract标题 + 正文，分别加类名 -->
+    <div class="abstract-title" class="abstract-section">Abstract</div>
+    <div class="abstract-content">
+      Chronic diarrhea affects millions worldwide, yet its underlying causes often remain 
+      undiagnosed due to the lack of accessible diagnostic tools. One of the most overlooked 
+      conditions is<strong class="bam-highlight"> Bile Acid Malabsorption (BAM)</strong>, a disorder in which excess bile acids reach 
+      the colon, leading to persistent diarrhea, abdominal pain, and impaired quality of life.
+    </div>
+  </div>
+</div>
+<div id="backToTop" class="back-to-top" style="position: fixed !important; z-index: 999999 !important; display: block !important; bottom: 30px !important; right: 30px !important; width: 48px !important; height: 48px !important; background: rgba(10,10,26,0.8) !important; border-radius: 50% !important; margin: 0 !important; padding: 0 !important; transform: none !important;">
+      <svg class="progress-ring" width="48" height="48" style="transform: rotate(-90deg) !important; width: 48px !important; height: 48px !important;">
+        <circle class="progress-ring-circle-bg" cx="24" cy="24" r="20" style="stroke: rgba(0,255,136,0.2) !important; stroke-width: 3 !important; fill: transparent !important;"></circle>
+        <circle class="progress-ring-circle" cx="24" cy="24" r="20" style="stroke: #00ff88 !important; stroke-width: 3 !important; fill: transparent !important; stroke-linecap: round !important; transition: stroke 0.3s ease !important;"></circle>
+      </svg>
+      <span class="arrow" style="position: absolute !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%) !important; color: #00ff88 !important; font-size: 20px !important; font-weight: bold !important; transition: color 0.3s ease !important;">↑</span>
+    </div>      
+<!-- 滚动浮现文字容器（中间靠左） -->
+<div class="scroll-text-container">
+  <div class="scroll-text" id="text-1">Normally, BRIGHT is turned off by a darkBiT.<br> Until a Bile acid enters the scene...</div>
+  <div class="scroll-text" id="text-2">The bile acid<br> binds to FXR-LBD receptor </div>
+  <div class="scroll-text" id="text-3">Opening an adjacent binding pocket </div>
+  <div class="scroll-text" id="text-4">The LXXLL domain binds to the pocket, <br>pulling away the darkBiT</div>
+  <div class="scroll-text" id="text-5">This allows the smallBiT to bind to the largeBiT.<br>Bringing the luciferase subunits together to emit<br><strong>light!</strong></div>
+</div><!-- 彻底清空行内干扰样式，只留核心 + 初始类 -->
+<img src="assets/images/bile-acid.webp" class="ba-reset" alt="BA" style="position: absolute; width: 30%; top: 52%; left: 36%; opacity: 1 !important; transition: all 1s ease !important;">  
+<img src="assets/images/state-1.webp" style="position: absolute;  object-fit: contain; z-index: 10;">
+ <img src="assets/images/state-2-v2.webp" class="state-2">
+  
+  <!-- state-3-v2：带左上45°移动动画，可调整位移/初始位置 -->
+  <img src="assets/images/state-3-v2.webp" class="state-3">    <!-- 返回顶部按钮 -->
+    <!-- 只改这一行！其他所有代码都不动！ -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <!-- 返回顶部 JS -->
+    <script>
+      const backToTopBtn = document.getElementById('backToTop');
+      const progressCircle = document.querySelector('.progress-ring-circle');
+      const circumference = 2 * Math.PI * 20;
+      progressCircle.style.strokeDasharray = circumference;
+      progressCircle.style.strokeDashoffset = circumference;
+
+      backToTopBtn.style.display = 'block';
+
+      backToTopBtn.onclick = function(e) {
+        e.preventDefault();
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+        window.scrollTo(0, 0);
+      };
+
+      backToTopBtn.onmouseover = function() {
+        progressCircle.style.stroke = '#ffd700';
+        this.querySelector('.arrow').style.color = '#ffd700';
+      };
+      backToTopBtn.onmouseout = function() {
+        progressCircle.style.stroke = '#00ff88';
+        this.querySelector('.arrow').style.color = '#00ff88';
+      };
+
+      window.addEventListener('scroll', function() { 
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
+        const offset = circumference - (scrollPercent * circumference);
+        progressCircle.style.strokeDashoffset = offset;
+      });
+    </script>
+   <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const videoContainer = document.getElementById('introVideoContainer');
+    const video = document.getElementById('introVideo');
+
+    // 核心：检测URL参数里是否有 noVideo=1（从分页面返回）
+    const urlParams = new URLSearchParams(window.location.search);
+    const skipVideo = urlParams.get('noVideo') === '1';
+
+    // 如果是从分页面返回，直接隐藏视频
+    if (skipVideo) {
+      videoContainer.style.display = 'none';
+      return;
+    }
+
+    // 直接进入主页 → 正常播放视频
+    video.addEventListener('ended', function() {
+      videoContainer.classList.add('fade-out');
+      setTimeout(() => {
+        videoContainer.style.display = 'none';
+      }, 1200);
+    });
+
+    // 点击跳过视频
+    videoContainer.addEventListener('click', function() {
+      video.pause();
+      videoContainer.classList.add('fade-out');
+      setTimeout(() => {
+        videoContainer.style.display = 'none';
+      }, 1200);
+    });
+
+    // 视频加载失败时隐藏
+    video.addEventListener('error', function() {
+      videoContainer.style.display = 'none';
+    });
+  });
+</script>
+<script>
+  // 图片淡出核心逻辑（只监听滚动，不影响其他功能）
+window.addEventListener('scroll', function() {
+  // 获取滚动距离
+  const scrollTop = window.scrollY;
+  // 首屏高度
+  const headerHeight = document.getElementById('headerImage').offsetHeight;
+  // 计算透明度：滚动超过首屏一半开始淡出，滚完首屏完全透明
+  const opacity = Math.max(1 - (scrollTop / headerHeight), 0);
+  
+  // 给图片设透明度
+  const headerImg = document.getElementById('headerImage').querySelector('img');
+  if (headerImg) {
+    headerImg.style.opacity = opacity;
+    console.log('透明度：', opacity); // 控制台能看到变化，证明在运行
+  }
+});
+
+// 点击返回顶部恢复图片透明度
+document.getElementById('backToTop').addEventListener('click', function() {
+  window.scrollTo({top: 0, behavior: 'smooth'});
+  const headerImg = document.getElementById('headerImage').querySelector('img');
+  if (headerImg) headerImg.style.opacity = 1;
+});
+</script>
+<script>
+  // 往复式浮现/消失逻辑（滚上消失，滚下浮现）
+window.addEventListener('scroll', function() {
+  const imageTextBox = document.querySelector('.image-text-box');
+  if (!imageTextBox) return; // 没找到元素就不执行
+  
+  // 获取文本框的位置信息（关键：同时判断顶部和底部）
+  const boxRect = imageTextBox.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+  
+  // ========== 可调整的参数（和之前一样） ==========
+  const triggerRatio = 0.6; // 触发浮现的阈值：越小越晚浮现（0.5=屏幕中间）
+  // ==============================================
+  
+  // 逻辑判断：
+  // 1. 文本框进入触发区域 → 浮现（加fade-in）
+  // 2. 文本框完全滚出屏幕上方 → 消失（删fade-in）
+  if (boxRect.top < windowHeight * triggerRatio) {
+    imageTextBox.classList.add('fade-in'); // 浮现
+  } else if (boxRect.bottom < 0) {
+    imageTextBox.classList.remove('fade-in'); // 消失
+  }
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 1. 获取所有文字元素
+  const texts = [
+    document.getElementById('text-1'),
+    document.getElementById('text-2'),
+    document.getElementById('text-3'),
+    document.getElementById('text-4'),
+    document.getElementById('text-5')
+  ];
+
+  // 2. 核心：滚动触发浮现（可改触发距离，调浮现时机）
+  function handleScroll() {
+    const scrollY = window.scrollY; // 网页滚动距离
+    // 每段文字的触发距离（数值越小，浮现越早；越大越晚）
+    const triggerPoints = [
+      500,  // 文案1：滚动300px浮现
+      800,  // 文案2：滚动500px浮现
+      900,  // 文案3：滚动700px浮现
+      1100,  // 文案4：滚动900px浮现
+      1200  // 文案5：滚动1100px浮现
+    ];
+
+    // 遍历文字，满足滚动距离就浮现（浮现后永久固定）
+    texts.forEach((text, index) => {
+      if (scrollY >= triggerPoints[index]) {
+        text.classList.add('show'); // 浮现后固定显示
+      }
+    });
+  }
+
+  // 绑定滚动事件 + 初始执行
+  window.addEventListener('scroll', handleScroll);
+  handleScroll();
+});
+</script>
+<!-- ========== 新增：延伸区域 - 左侧图片 + 右侧文本框（全局绝对定位，无容器遮挡） ========== -->
+<!-- 左侧图片：havingshit.webp（滚动浮现，可自由调位置，无容器限制） -->
+<div id="introduction" class="image-container">
+ <img 
+  src="assets/images/havingshit.webp" 
+  class="extend-img fade-element" 
+  alt="extend-img"
+  style="
+    /* 初始隐藏，滚动浮现 */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 2s ease !important;
+    /* 核心调整：全局绝对定位 */
+    position: absolute !important;
+    z-index: 90 !important;
+    pointer-events: none;
+    /* 【修复1】强制显示，确保DOM渲染 */
+    display: block !important; 
+    visibility: visible !important;
+    /* 位置参数（你可微调） */
+    top: 1600px !important; 
+    left: -10% !important;   
+    width: 45% !important; 
+    height: auto !important"
+></div>
+
+<!-- 右侧文本框：拆成「背景层 + 文字层」，完全独立控制 -->
+<div 
+  class="text-bg-container"
+  style="
+    /* 背景层：专门控制wbkw2.png的大小和位置，和文字无关 */
+    position: absolute !important;
+    z-index: 20 !important;
+    /* 先调背景图的大小和位置（这部分只影响背景图） */
+    top: 1600px !important;    /* 背景图的垂直位置 */
+    right: -10% !important;     /* 背景图的水平位置 */
+    width: 80% !important;    /* 背景图的宽度（独立调整） */
+    height: 650px !important; /* 背景图的高度（独立调整） */
+    /* 背景图：wbkw2.png */
+    background: url('assets/images/wbk4w.png') no-repeat center center !important;
+    background-size: 100% 100% !important; /* 背景图完全填充这个容器 */
+  "
+>
+  <!-- 文字层：专门控制文字的大小、位置和宽度，和背景图无关 -->
+  <div 
+    class="text-content-container"
+    style="
+      /* 文字层：相对于背景层定位，方便把文字放进背景图里 */
+      position: absolute !important;
+      /* 再调文字的位置和大小（这部分只影响文字） */
+      top: 160px !important;    /* 文字在背景图里的垂直位置 */
+      left: 220px !important;   /* 文字在背景图里的水平位置 */
+      width: calc(70% - 90px) !important; /* 文字宽度：背景图宽度 - 左右边距（独立调整） */
+      /* 文字样式 */
+      color: white !important;
+      font-family:SEGUIBL !important;
+      font-size: 22px !important; /* 文字大小（独立调整） */
+      line-height: 2 !important;
+      margin: 0 !important;
+    "
+  >
+    While occasional diarrhea is an experience everyone shares, approximately 5% of adults suffer from <span style="color: gold !important; font-weight: bold !important;font-size: 37px;">chronic diarrhea.</span>
+    Due to its perceived "harmless" nature, chronic diarrhea receives limited attention in clinical diagnostics and therapeutic development.
+  </div>
+</div>
+<!-- 浮现动画JS（仅控制这两个元素，无冗余） -->
+<script>
+window.addEventListener('scroll', function() {
+  const extendImg = document.querySelector('.extend-img');
+  // 【修复2】选择器改成text-bg-container（匹配你的文本框class）
+  const extendTextBox = document.querySelector('.text-bg-container');
+  
+  // 【修复3】分开判断，图片和文本框独立触发，不互相影响
+  if (extendImg) { // 只判断图片是否存在，不依赖文本框
+    if (window.scrollY >= 1800) {
+      extendImg.classList.add('fade-in');
+    }
+  }
+  if (extendTextBox) { // 文本框单独判断
+    if (window.scrollY >= 1800) {
+      extendTextBox.classList.add('fade-in');
+    }
+  }
+});
+
+// 浮现样式不动
+const style = document.createElement('style');
+style.textContent = `
+  .fade-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+`;
+document.head.appendChild(style);
+</script>
+<!-- 左侧图片：按你要求调整位置 + 直接显示 -->
+<img 
+  id="slide-img"
+  src="assets/images/chang1.webp" 
+  style="
+    /* 强制显示，无浮动 */
+    opacity: 1 !important;
+    display: block !important;
+    /* 你的位置参数：top:2300px, left:70% */
+    position: absolute !important;
+    z-index: 90 !important;
+    top: 2300px !important;
+    left: 80% !important;   
+    width: 25% !important; 
+    height: auto !important;
+  "
+>
+
+<!-- 右侧文本框：保留你的位置，仅简化按钮 -->
+<div 
+  class="text-bg-container-slide"
+  style="
+    position: absolute !important;
+    z-index: 20 !important;
+    top: 2300px !important;    
+    right: 25% !important;     
+    width: 65% !important;    
+    height: 550px !important; 
+    background: url('assets/images/wbk3w.png') no-repeat center center !important;
+    background-size: 100% 100% !important;
+    padding-bottom: 20px !important;
+  "
+>
+  <div 
+    class="text-content-container-slide"
+    style="
+      position: absolute !important;
+      top: 100px !important;    
+      left:180px !important;   
+      width: calc(70% - 80px) !important; 
+      color: white !important;
+      font-family:SEGUIBL !important;
+      font-size: 20px !important;
+      line-height: 1.6 !important;
+      margin: 0 !important;
+    "
+  >
+<div id="slide-text-area">
+  To understand Bile Acid Malabsorption (BAM), it is essential to first understand what bile acids are. Bile acids are molecules that facilitate fat digestion and absorption. They are synthesized in the liver and stored in the gallbladder until secreted during digestion
+  <br>
+  <span style="color: rgb(21, 183, 227) !important; font-weight: bold !important; font-size: 20px !important;">
+    Use the buttons to explore the mechanisms behind BAM:
+  </span>
+</div>
+<div style="margin-top: 30px !important; position: relative !important; z-index: 9999 !important;">
+  <!-- Previous按钮：提升层级+确保可点击 -->
+  <button id="prev-btn" style="
+    padding: 8px 20px !important;
+    margin-right: 15px !important;
+    background: rgb(9, 13, 255) !important;
+    color: white !important;
+    border: 1px solid white !important;
+    border-radius: 4px !important;
+    font-family: SEGUIBL !important;
+    font-size: 16px !important;
+    cursor: pointer !important;
+    opacity: 0.5 !important;
+    position: relative !important; /* 让z-index生效 */
+    z-index: 9999 !important; /* 最高层级，远超赞助商区域 */
+    pointer-events: auto !important; /* 强制允许点击 */
+    box-shadow: 0 0 5px rgba(255,255,255,0.5) !important; /* 可选：增强视觉 */
+  ">Previous👈🏻</button>
+  
+  <!-- Next按钮：同样提升层级+确保可点击 -->
+  <button id="next-btn" style="
+    padding: 8px 20px !important;
+    background: rgb(255, 0, 0) !important;
+    color: white !important;
+    border: 1px solid white !important;
+    border-radius: 4px !important;
+    font-family: SEGUIBL !important;
+    font-size: 16px !important;
+    cursor: pointer !important;
+    position: relative !important; /* 让z-index生效 */
+    z-index: 9999 !important; /* 最高层级，远超赞助商区域 */
+    pointer-events: auto !important; /* 强制允许点击 */
+    box-shadow: 0 0 5px rgba(255,255,255,0.5) !important; /* 可选：增强视觉 */
+  ">Next👉🏻</button>
+</div>
+<!-- JS：极简核心逻辑，去掉所有冗余，确保按钮点击必生效 -->
+<script>
+// 1. 幻灯片数据（仅保留核心：图片+文案）
+const slideData = [
+  { 
+    img: "assets/images/chang1.webp", 
+    text: "To understand Bile Acid Malabsorption (BAM), it is essential to first understand what bile acids are. Bile acids are molecules that facilitate fat digestion and absorption. They are synthesized in the liver and stored in the gallbladder until secreted during digestion<br><span style='color: rgb(21, 183, 227) !important; font-weight: bold !important; font-size: 20px !important;'>Use the buttons to explore the mechanisms behind BAM:</span>" 
+  },
+  { 
+    img: "assets/images/chang2.webp", 
+    text: "Following gallbladder excretion, bile acids travel through the small intestine. As they progress through the gastrointestinal tract, they eventually reach the end of the small intestine, the ileum.<br><span style='color: rgb(21, 183, 227) !important; font-weight: bold !important; font-size: 20px !important;'>Use the buttons to explore the mechanisms behind BAM:</span>" 
+  },
+  { 
+    img: "assets/images/chang3.webp", 
+    text: "In the terminal ileum, specialized transporters actively reabsorb approximately 95% of bile acids into the bloodstream. These bile acids are then returned to the liver where they are recycled. This highly efficient reabsorption mechanism maintains bile acid homeostasis in healthy individuals.<br><span style='color: rgb(21, 183, 227) !important; font-weight: bold !important; font-size: 20px !important;'>Use the buttons to explore the mechanisms behind BAM:</span>" 
+  },
+  { 
+    img: "assets/images/chang4.webp", 
+    text: "<span style='color: green !important; font-weight: bold !important;'>BAM</span> is a gastrointestinal condition in which bile acids are not properly reabsorbed. Instead, bile acids spill into the colon, resulting in excessive colonic bile acid concentrations. This disrupts the osmotic balance, pulling water into the intestines and inducing secretory diarrhea.Bile acids can cause mucosal irritation, triggering inflammation and stimulating excess mucus production, which further exacerbates symptoms and patient discomfort." 
+  }
+];
+let currentPage = 0;
+
+// 2. 页面加载完成后立刻绑定按钮（核心修复！）
+document.addEventListener('DOMContentLoaded', function() {
+  // 获取按钮元素
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const textArea = document.getElementById('slide-text-area');
+  const imgArea = document.getElementById('slide-img');
+
+  // 3. Next按钮点击逻辑（直接写，不绕弯）
+  nextBtn.onclick = function() {
+    if (currentPage < 3) { // 第四页（索引3）禁用
+      currentPage++;
+      // 切换图片+文案
+      imgArea.src = slideData[currentPage].img;
+      textArea.innerHTML = slideData[currentPage].text;
+      // 启用Previous按钮
+      prevBtn.style.opacity = '1';
+      prevBtn.style.pointerEvents = 'auto';
+      // 第四页禁用Next
+      if (currentPage === 3) {
+        nextBtn.style.opacity = '0.5';
+        nextBtn.style.pointerEvents = 'none';
+      }
+    }
+  };
+
+  // 4. Previous按钮点击逻辑（直接写，不绕弯）
+  prevBtn.onclick = function() {
+    if (currentPage > 0) { // 第一页（索引0）禁用
+      currentPage--;
+      // 切换图片+文案
+      imgArea.src = slideData[currentPage].img;
+      textArea.innerHTML = slideData[currentPage].text;
+      // 启用Next按钮
+      nextBtn.style.opacity = '1';
+      nextBtn.style.pointerEvents = 'auto';
+      // 第一页禁用Previous
+      if (currentPage === 0) {
+        prevBtn.style.opacity = '0.5';
+        prevBtn.style.pointerEvents = 'none';
+      }
+    }
+  };
+});
+</script>
+<!-- ========== 完全隔离的诊断时间文字（仅新增，不修改任何原有代码） ========== -->
+<div id="diagnostic-time-container" class="diagnostic-time-container">
+  <div id="diagnostic-time-text" class="diagnostic-time-text">
+    Average diagnostic time is over 5 years
+  </div>
+</div>
+<script>
+// ========== 完全独立的滚动浮现检测（不修改原有scroll事件，不干扰按钮） ==========
+(function() {
+  // 仅在页面加载完成后执行，避免DOM未加载
+  document.addEventListener('DOMContentLoaded', function() {
+    const diagnosticText = document.getElementById('diagnostic-time-text');
+    if (!diagnosticText) return; // 没找到元素则退出，不报错
+    
+    // 独立的滚动检测函数，仅监听这段文字
+    function checkDiagnosticFade() {
+      const rect = diagnosticText.getBoundingClientRect();
+      // 滚动到视口80%位置时触发浮现，和原有逻辑一致但独立
+      if (rect.top < window.innerHeight * 0.8) {
+        diagnosticText.classList.add('fade-in');
+      }
+    }
+    
+    // 独立绑定滚动事件，标记为passive避免阻塞（不影响按钮事件）
+    window.addEventListener('scroll', checkDiagnosticFade, { passive: true });
+    // 初始检测一次
+    checkDiagnosticFade();
+  });
+})(); // 闭包隔离，不污染全局变量
+// ========== 独立的逐步浮现逻辑（闭包隔离，不影响上方代码） ==========
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. 获取三句文字元素
+    const brightTexts = [
+      document.getElementById('bright-text-1'),
+      document.getElementById('bright-text-2'),
+      document.getElementById('bright-text-3')
+    ];
+
+    // 2. 每句话的触发滚动距离（👇 可单独调整：数值越小，浮现越早）
+    const triggerPoints = [
+      3400,  // 第一句：滚动2800px浮现
+      3700,  // 第二句：滚动3000px浮现
+      3800   // 第三句：滚动3200px浮现
+    ];
+
+    // 3. 独立的滚动检测函数
+    function checkBrightStepFade() {
+      const scrollY = window.scrollY;
+      // 遍历每句话，满足滚动距离就浮现（浮现后永久显示）
+      brightTexts.forEach((text, index) => {
+        if (!text) return; // 未找到元素则跳过
+        if (scrollY >= triggerPoints[index]) {
+          text.classList.add('show');
+        }
+      });
+    }
+
+    // 4. 独立绑定滚动事件（passive：不阻塞，不影响上方动画）
+    window.addEventListener('scroll', checkBrightStepFade, { passive: true });
+    // 初始检测一次
+    checkBrightStepFade();
+  });
+})();
+// ========== 独立的图片滚动浮现逻辑（闭包隔离，不影响上方代码） ==========
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. 获取图片元素
+    const state4Img = document.getElementById('state4-image');
+    if (!state4Img) {
+      console.warn('State 4图片未找到，请检查路径：assets/images/state-4.webp');
+      return;
+    }
+
+    // 2. 图片浮现的触发滚动距离（👇 可调整：数值越小，浮现越早）
+    const imgTriggerPoint = 3800; // 滚动3800px时图片浮现
+
+    // 3. 独立的滚动检测函数
+    function checkImageFade() {
+      const scrollY = window.scrollY;
+      if (scrollY >= imgTriggerPoint) {
+        state4Img.classList.add('show-img');
+      }
+    }
+
+    // 4. 独立绑定滚动事件（passive：不阻塞，不影响上方动画/按钮）
+    window.addEventListener('scroll', checkImageFade, { passive: true });
+    // 初始检测一次
+    checkImageFade();
+  });
+})();
+</script>
+<!-- ========== 独立的逐步浮现文字容器（仅新增，不改原有代码） ========== -->
+<div id="step-bright-container" class="step-bright-container">
+  <!-- 第一句 -->
+  <div id="bright-text-1" class="bright-step-text">So we decided to make it our problem.</div>
+  <!-- 第二句 -->
+  <div id="bright-text-2" class="bright-step-text">And that's why we are introducing:</div>
+  <!-- 第三句（独占一行，单独调整样式） -->
+  <div id="bright-text-3" class="bright-step-text bright-bigtxt">BRIGT</div>
+</div>
+<!-- ========== 完全独立的图片容器（仅新增，不改原有代码） ========== -->
+<div id="bottom-image-container" class="bottom-image-container">
+  <img 
+    id="state4-image" 
+    class="state4-img" 
+    src="assets/images/state-4.webp" 
+    alt="State 4 Image"
+  >
+</div>
+<!-- ========== 完全独立的底部线条+文字+按钮容器（仅新增，不改原有代码） ========== -->
+<div id="bottom-footer-container" class="bottom-footer-container">
+  <!-- 彩色渐变线条（黄+绿主题，参考CAUCHINA下的线） -->
+  <div id="footer-gradient-line" class="footer-gradient-line"></div>
+  
+  <!-- Learn my project 文字 -->
+  <div id="footer-learn-text" class="footer-learn-text">Learn my project</div>
+  
+  <!-- 横向按钮容器 -->
+  <div id="footer-btns-wrapper" class="footer-btns-wrapper">
+    <!-- 按钮1：Team（跳转team.html） -->
+    <a href="team.html" id="btn-team" class="footer-custom-btn btn-team">Team</a>
+    <!-- 按钮2：Picture source（跳转picture-source.html） -->
+    <a href="picture-source.html" id="btn-pic-source" class="footer-custom-btn btn-pic-source">Picture source</a>
+    <!-- 按钮3：Text source（修正你笔误的Pext sourse，跳转text-source.html） -->
+    <a href="text-source.html" id="btn-text-source" class="footer-custom-btn btn-text-source">Text source</a>
+  </div>
+</div>
+<!-- 赞助商区域：恢复可正常显示的版本 + 4张滚动图片 -->
+<div id="sponsors-section" class="sponsors-section">
+  <!-- 标题：Rajdhani字体+白色+荧光效果 -->
+  <div class="sponsors-title">Big thanks to my Sponsors! ❤️</div>
+  
+  <!-- 白色背景条（恢复可显示的基础样式） -->
+  <div class="sponsors-white-bar">
+    <!-- 滚动广告条核心容器：超出隐藏 -->
+    <div class="sponsor-scroll-wrap">
+      <!-- 滚动轨道（放2组相同图片，实现无缝滚动） -->
+      <div class="sponsor-scroll-track">
+        <!-- 第一组4张图片 -->
+        <img src="assets/images/sponsor1.png" alt="Sponsor 1" class="sponsor-logo">
+        <img src="assets/images/sponsor2.png" alt="Sponsor 2" class="sponsor-logo">
+        <img src="assets/images/sponsor3.png" alt="Sponsor 3" class="sponsor-logo">
+        <img src="assets/images/sponsor4.png" alt="Sponsor 4" class="sponsor-logo">
+        <img src="assets/images/cau-logo.png" alt="Sponsor 5" class="sponsor-logo">
+        <!-- 第二组4张图片（无缝滚动关键） -->
+        <img src="assets/images/sponsor1.png" alt="Sponsor 1" class="sponsor-logo">
+        <img src="assets/images/sponsor2.png" alt="Sponsor 2" class="sponsor-logo">
+        <img src="assets/images/sponsor3.png" alt="Sponsor 3" class="sponsor-logo">
+        <img src="assets/images/sponsor4.png" alt="Sponsor 4" class="sponsor-logo">
+        <img src="assets/images/cau-logo.png" alt="Sponsor 5" class="sponsor-logo">
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

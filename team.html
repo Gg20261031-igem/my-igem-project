@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team - CAU-CHINA</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: #0a0a1a; color: #ffffff !important;">
+  <!-- 导航栏（保留，方便返回） -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Team</a>
+      <div class="ms-auto">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              Disclaimer
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="text-source.html">Text-source</a></li>
+              <li><a class="dropdown-item" href="picture-source.html">Picture Source</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 内容区（避开导航栏，样式统一） -->
+  <div class="container" style="padding-top: 100px;">
+    <div class="row justify-content-center">
+<div class="content-box" style="font-size: 1.2rem; line-height: 1.8; background-color: rgba(10, 10, 26, 0); padding: 2rem; border-radius: 10px;">
+  <!-- 1. homepage按钮：新增位置控制类 "pos-homepage-btn" -->
+  <a href="index.html?noVideo=1" class="homepage-btn pos-homepage-btn" style="color: #ffffff; margin-bottom: 20px; display: inline-block; text-decoration: none;font-size:30px;">👈🏻homepage</a>
+  
+  <!-- 2. Text Source标题：新增位置控制类 "pos-text-title" -->
+  <h2 class="pos-text-title" style="color: #f7f30c; margin-bottom: 1.5rem; font-family: 'SEGUIBL';">Team</h2>
+  
+  <!-- 3. 后续待定文案：新增容器类 "pos-text-content"（预留位置控制） -->
+  <div class="pos-text-content">
+  only me<br>
+  and I don't know what to write on this sub-page.
+    <!-- 这里放你后续要加的文案，位置可单独调整 -->
+    <!-- 示例：<p>你的待定文案内容</p> -->
+  </div>
+</div>
+<style>
+/* ========== 位置调整：每个元素独立控制，互不影响 ========== */
+/* 1. homepage按钮位置调整（可改上下/左右） */
+.pos-homepage-btn {
+  /* 👇 可修改：上下位置（正数向下，负数向上） */
+  margin-top: 0px !important;    /* 和上方容器的间距 */
+  margin-bottom: 30px !important; /* 和下方标题的间距（原有20px改为30px，可改） */
+  /* 👇 可修改：左右位置（正数向右，负数向左；auto=居中） */
+  margin-left: 190px !important;   /* 向左偏移0px（默认靠左） */
+  /* 可选：用定位精准调整（优先级更高，适合微调） */
+  /* position: relative !important;
+     top: 10px !important;    向下10px
+     left: 20px !important;   向右20px */
+}
+
+/* 2. Text Source标题位置调整 */
+.pos-text-title {
+  /* 👇 可修改：上下位置 */
+  margin-top: 0px !important;    /* 和上方按钮的间距 */
+  margin-bottom: 20px !important; /* 和下方文案的间距 */
+  /* 👇 可修改：左右位置（auto=居中，数值=偏移） */
+  margin-left: 190px !important;   /* 靠左；改为auto则居中；改为50px则向右50px */
+  /* 可选：定位微调 */
+  /* position: relative !important;
+     top: 5px !important;
+     left: 10px !important; */
+}
+
+/* 3. 后续待定文案位置调整 */
+.pos-text-content {
+  /* 👇 可修改：上下/左右位置 */
+  margin-top: 0px !important;
+  margin-left: 190px !important;
+  /* 可选：文字整体缩进/居中 */
+  /* text-align: center !important; 文案居中
+     padding-left: 20px !important; 文字缩进20px */
+}
+
+/* ========== 保留原有按钮样式（无需修改） ========== */
+.homepage-btn {
+  background-color: rgba(8, 148, 8, 0.9) !important;
+  padding: 10px 25px !important;
+  border-radius: 8px !important;
+  font-family: "Rajdhani", "SEGUIBL", sans-serif !important;
+  font-weight: 700 !important;
+  border: 1px solid #ffffff !important;
+  transition: all 0.3s ease !important;
+  display: inline-block !important;
+  z-index: 10 !important;
+}
+.homepage-btn:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.8) !important;
+  background-color: rgba(0, 255, 136, 0.9) !important;
+  color: #000000 !important;
+  text-decoration: none !important;
+}</style>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
